@@ -20,7 +20,7 @@ class OwnershipsController < ApplicationController
         return render :js => "alert('#{e.message}')"
       end
 
-      amazon_item       = response.items.first
+      @amazon_item       = response.items.first
       @item.title        = amazon_item.get('ItemAttributes/Title')
       @item.small_image  = amazon_item.get("SmallImage/URL")
       @item.medium_image = amazon_item.get("MediumImage/URL")
