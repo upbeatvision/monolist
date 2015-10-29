@@ -19,8 +19,9 @@ class OwnershipsController < ApplicationController
       rescue Amazon::RequestError => e
         return render :js => "alert('#{e.message}')"
       end
-
-      @amazon_item       = response.items.first
+      
+      binding.pry
+      amazon_item       = response.items.first
       @item.title        = amazon_item.get('ItemAttributes/Title')
       @item.small_image  = amazon_item.get("SmallImage/URL")
       @item.medium_image = amazon_item.get("MediumImage/URL")
